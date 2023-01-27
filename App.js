@@ -1,7 +1,7 @@
 const express = require("express")
 const morgan = require("morgan")
 const cors = require("cors")
-const PostValue = require("./Routes/PostRoute")
+
 const mongoose = require('mongoose')
 const dotenv = require("dotenv").config()
 
@@ -12,13 +12,13 @@ app.use(morgan("dev"))
 app.use(cors())
 
 
-app.use("/api/post",PostValue)
 
-// app.get('/', (req, res) => {
-//     res.send('GET request successful!');
-// });
 
-let port = 5000 
+app.get('/', (req, res) => {
+    res.send('GET request successful!');
+});
+
+let port = process.env.PORT
 app.listen(port,()=>{
     console.log("Server Running Port " + port);
 })
